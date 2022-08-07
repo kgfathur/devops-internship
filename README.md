@@ -1,3 +1,5 @@
+[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 <!--
@@ -47,7 +49,7 @@
   </p>
 </div>
 
-[![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+![image](https://orangematter.solarwinds.com/wp-content/uploads/2022/03/DevOps-lifecycle-capabilities-1024x621.png)
 
 # Table of contents
 
@@ -94,6 +96,7 @@
     - [ ] Indonesia
     - [ ] English
     - [ ] Sundanese :*
+
 Go to [open issues](https://github.com/kgfathur/devops-internship/issues) for request some interesting topic and see a full list of proposed contents (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

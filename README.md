@@ -27,12 +27,10 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
+  <h3 align="center">DevOps Internship</h3>
   <a href="https://github.com/kgfathur/devops-internship">
     <img src="https://forthebadge.com/images/badges/built-with-love.svg" alt="Build with <3">
   </a>
-
-  <h3 align="center">DevOps Internship</h3>
-
   <p align="center">
     Getting Started with DevOps!
     <br />
@@ -46,9 +44,6 @@
     <a href="https://github.com/kgfathur/devops-internship/issues">Request Topic</a>
   </p>
 </div>
-
-![image](https://orangematter.solarwinds.com/wp-content/uploads/2022/03/DevOps-lifecycle-capabilities-1024x621.png)
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -75,6 +70,9 @@
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
+
+![image](https://orangematter.solarwinds.com/wp-content/uploads/2022/03/DevOps-lifecycle-capabilities-1024x621.png)
+
 
 
 <!-- ROADMAP -->

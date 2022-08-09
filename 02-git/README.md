@@ -72,3 +72,57 @@ git clone https://github.com/kgfathur/devops-internship mylibgit
 ```
 
 ## Working with Branch
+
+In Git, branches are a part of your everyday development process. Git branches are effectively a pointer to a snapshot of your changes. When you want to add a new feature or fix a bug—no matter how big or how small—you spawn a new branch to encapsulate your changes.
+
+![branch](../images/git-branch.png)
+
+to check branch on a repository you need to change directory and run branch command.
+
+```bash
+git branch
+
+# output
+* main
+bug fix
+feature-1
+feature-2
+```
+
+to create new branch, use `branch` and then followed name of the branch.
+
+```bash
+git branch feature-3
+
+# output
+* main
+bug fix
+feature-1
+feature-2
+feature-3
+```
+
+To switch branch use `checkout` sub command
+
+```bash
+git checkout branch-name
+
+# Example
+git checkout feature-3
+git branch
+
+# output
+main
+bug fix
+feature-1
+feature-2
+* feature-3
+```
+
+Pushing new branch to the remote registry use following command
+
+```bash
+git push -u remote_name branch_name
+```
+
+## Pushing to remote registry

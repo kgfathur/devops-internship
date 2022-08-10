@@ -41,8 +41,6 @@ podman logs <container-id/container-name>
 docker logs <container-id/container-name>
 ```
 
-c
-
 ## 4. Install recommended plugin
 
 ![jenkins plugin1](../images/jenkins-view-plugin-1.PNG)

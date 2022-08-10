@@ -38,7 +38,7 @@ git config --global user.email Your@email.com
 
 ## Start using Git
 
-### Initializing a Repository in an Existing Directory
+### 1. Initializing a Repository in an Existing Directory
 
 If you have a project directory that is currently not under version control and you want to start controlling it with Git, you first need to go to that project’s directory.
 
@@ -60,7 +60,16 @@ After adding file to staging by using command `git add` next user need to commit
 git commit -m 'Initial project version'
 ```
 
-### getting a repository from external repository
+after commit now you need to publish your code to external registry.
+
+```bash
+git remote add origin https://your-repository.com/user/repo-name.git
+
+# to check remote repo
+git remote -v
+```
+
+### 2. Getting a repository from external repository
 
 To get an repository from other source (i.e. github, gitlab, and others) user can use `git clone` command as shown below.
 
@@ -125,4 +134,42 @@ Pushing new branch to the remote registry use following command
 git push -u remote_name branch_name
 ```
 
-## Pushing to remote registry
+## Pushing and pull from remote registry
+
+once you finish writing your code now its time to push it to your remote registry, before pushing your code you need to add your code to staging by using `add` command.
+
+```bash
+git add ./your-file.yaml
+
+# to add all file into staging
+git add .
+```
+
+after your change in staging the next step is to commit the change.
+
+```bash
+git commit -m 'commit message'
+```
+
+after committing now its time to upload your change in git use `push` to upload your latest change to the remote repository.
+
+```bash
+git push
+```
+
+If someone else makes a change to your code and you need to download it use pull command.
+
+```git
+git pull
+
+git pull remote-reg branch-name
+
+# example
+git pull origin feature-2
+```
+
+> **Note**
+>
+> you can use `fetch` command to tells your local git to retrieve the latest meta-data info from the original (yet doesn’t do any file transferring. It’s more like just checking to see if there are any changes available) before pulling from remote repo
+>
+> `git fetch`

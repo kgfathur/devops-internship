@@ -12,7 +12,7 @@ docker pull docker.io/jenkins/jenkins:latest
 
 ## 2. Run container
 
-Run the jenkins as a container and expose port and give the volume to jenkins use, command below is expose port 18080 in the host port to access the jenkins that listening to port 8080, then set a volume named jenkins-data to data inside /var/data/jenkins_home to be bind to.
+Run the jenkins as a container and expose port and give the volume to jenkins use, command below is expose port 18080 in the host port to access the jenkins that listening to port 8080, then set a volume named jenkins-data to data inside `/var/data/jenkins_home` to be bind to.
 
 ```bash
 # Podman
@@ -26,13 +26,12 @@ docker run -d -p 18080:8080 --name Jenkins -v jenkins-data:/var/data/jenkins_hom
 
 ![acess jenkins](../images/jenkins-view-first-time.PNG)
 
-Get admin password in /var/jenkins_home/secrets/initialAdminPassword or you can view your jenkins container log.
+Get admin password in `/var/jenkins_home/secrets/initialAdminPassword` or you can view your jenkins container logs.
 
 ```bash
-# Podman
+# view initialAdminPassword file
 podman exec -it Jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
-# Docker
 docker exec -it Jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
 #Accessing via logs

@@ -26,13 +26,12 @@ docker run -d -p 18080:8080 --name Jenkins -v jenkins-data:/var/data/jenkins_hom
 
 ![acess jenkins](../images/jenkins-view-first-time.PNG)
 
-Get admin password in /var/jenkins_home/secrets/initialAdminPassword or you can view your jenkins container log.
+Get admin password in `/var/jenkins_home/secrets/initialAdminPassword` or you can view your jenkins container logs.
 
 ```bash
-# Podman
+# view initialAdminPassword file
 podman exec -it Jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
-# Docker
 docker exec -it Jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
 #Accessing via logs

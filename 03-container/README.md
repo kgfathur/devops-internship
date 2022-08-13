@@ -12,7 +12,9 @@ Containers and virtual machines (VM) differ in a number of ways, but the primary
 
 ## The benefit of container
 
-![it-worrk](https://miro.medium.com/max/1310/0*wP4p_RrcLsimmsZe.jpg)
+<p align="center">
+    <img width=500" src="https://miro.medium.com/max/1310/0*wP4p_RrcLsimmsZe.jpg" alt="Material Bread logo">
+</p>
 
 ### 1. Reusability
 

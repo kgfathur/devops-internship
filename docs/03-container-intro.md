@@ -55,6 +55,10 @@ a layer, or image layer is a change on an image, or an intermediate image. Every
 
 ### Volume
 
+Container storage is said to be ephemeral, meaning its contents are not preserved after the container is removed. they are never changed, but rather composed of layers that add or override the contents of layers below. A running container gets a new layer over its base container image, and this layer is the container storage. if we delete said container newly created container layer will be deleted.
+
+![container-layers](https://docs.docker.com/storage/storagedriver/images/container-layers.jpg)
+
 In order to be able to save (persist) data and also to share data between containers, Docker/podman came up with the concept of volumes. Quite simply, volumes are directories (or files) that are outside of the default Union File System and exist as normal directories and files on the host filesystem.
 
 There are several ways to initialise volumes, with some subtle differences that are important to understand. The most direct way is declare a volume at run-time with the -v flag:
@@ -105,3 +109,7 @@ example use of these flags
 ```bash
 podman run -d --name devops-demo -p 80:8080 -p 443:4430 docker.io/library/nginx
 ```
+
+Next Content
+
+[Managing Container](../docs/03-container-demo.md)

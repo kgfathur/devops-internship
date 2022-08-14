@@ -155,3 +155,52 @@ podman rm my-httpd-container
 ```
 
 ## Persistent Storage in Containers
+
+There's some prerequisite to be meet before mounting host directory to a containers
+
+- [ ] Correct File or Directory ownership to uid  and gid
+- [ ] Directory is configured with correct SELinux context
+
+```bash
+mkdir /home/student/dbfiles
+
+podman unshare chown -R 27:27 /home/student/dbfiles
+
+sudo semanage fcontext -a -t container_file_t `/home/student/dbfiles(/.*)?`
+
+sudo restorecon -Rv /home/student/dbfiles
+```
+
+Podman run below shows command to run mysql container and mount file inside `/var/lib/mysql` In the container to `/home/student/dbfiles` inside the host.
+
+```bash
+podman run -v /home/student/dbfiles:/var/lib/mysql rhmap47/mysql
+```
+
+## Accessing Containers from Network
+
+Use the `-p [<IP address>:][<host port>:]<container port>` option with the podman run command to create an externally accessible container.
+
+```bash
+podman run -d --name apache1 -p 8080:80 registry.redhat.io/rhel8/httpd-24
+
+podman run -d --name apache2 -p 127.0.0.1:8081:80 registry.redhat.io/rhel8/httpd-24
+
+podman run -d --name apache3 -p 127.0.0.1::80 registry.redhat.io/rhel8/httpd-24
+podman port apache3
+
+# output
+80/tcp -> 127.0.0.1:35134
+
+podman run -d --name apache4 -p 80 registry.redhat.io/rhel8/httpd-24
+podman port apache4
+
+# output
+80/tcp -> 0.0.0.0:37068
+```
+
+Example 1 any request to host port 8080 will be forwarded to port 80 in container.
+
+Example 2 Only request from localhost port 8081 will be forwarded to container port 80.
+
+Example 3 if theres no specified port in host Podman will allocate random port to forward it to container port 80, to see port forwarded use `podman port` command, The same thing on Example 4.

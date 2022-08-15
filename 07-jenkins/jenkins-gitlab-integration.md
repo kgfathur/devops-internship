@@ -8,7 +8,7 @@
 
 ### Choose Availabe Options, Search GitLab 
 
-Checklist GitLab Plugin, then klik Download now and install after restart.
+Checklist GitLab Plugin, then click Download now and install after restart.
  
 ![download_gitlab_plugin](../images/download-gitlab-plugin.PNG)
 

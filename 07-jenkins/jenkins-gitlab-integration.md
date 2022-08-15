@@ -78,4 +78,6 @@ Click Test Connection to test our config. If the config is right, there will be 
 
 ![configure_gitlab_plugin_4](../images/configure-gitlab-plugin-7.PNG)
 
+DON'T FORGET TO SAVE YOUR CONFIGURATION!
+
 ## 4. Congratulation! Jenkins now connected with GitLab!

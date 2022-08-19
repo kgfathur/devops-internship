@@ -1,0 +1,26 @@
+{
+  "name": "node-demo",
+  "version": "1.0.0",
+  "description": "This is a bare bones Node & Express app for demos.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install",
+    "test": "mocha --exit",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agambewe/node-demo.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "docker",
+    "demo"
+  ],
+  "author": "bewe",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

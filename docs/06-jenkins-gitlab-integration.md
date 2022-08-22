@@ -1,33 +1,37 @@
 # Jenkins & Gitlab Integration
 
-## 1. Download Gitlab Plugin for Jenkins (If not Already Exist).
+## 1. Download Gitlab Plugin for Jenkins (If not Already Exist)
 
-### Go to Manage Jenkins and Choose Manage Plugins.
+### Go to Manage Jenkins and Choose Manage Plugins
 
 ![manage_plugin](../images/manage-jenkins.PNG)
 
-### Choose Availabe Options, Search GitLab.
+### Choose Availabe Options, Search GitLab
 
 Checklist GitLab Plugin, then click Download now and install after restart.
- 
+
 ![download_gitlab_plugin](../images/download-gitlab-plugin.PNG)
 
-### Wait Until Installation Finish.
+### Wait Until Installation Finish
 
 ![plugin_installation_complete](../images/plugin-installation-complete.PNG)
 
-## 2. Wait for Jenkins to Restart.
-### If You Are Impatient Restart Jenkins Service with Systemctl(at your own risk).
+## 2. Wait for Jenkins to Restart
+
+### If You Are Impatient Restart Jenkins Service with Systemctl(at your own risk)
+
 ```bash
 systemctl restart jenkins
 ```
 
-## 3. Configure Connection to Gitlab.
-### Go to Manage Jenkins and Choose Configure System.
+## 3. Configure Connection to Gitlab
+
+### Go to Manage Jenkins and Choose Configure System
 
 ![configure_system](../images/configure-system.PNG)
 
-### Find Gitlab.
+### Find Gitlab
+
 Checklist Enable Authentication for '/project' end-point so Jenkins can see project in Gitlab.
 
 ![configure_gitlab_plugin_1](../images/configure-gitlab-plugin-1.PNG)
@@ -48,7 +52,7 @@ Now open your GitLab, we need Personal Access Token from GitLab to give authoriz
 
 Choose which user in your GitLab that Jenkins can use for Authorization **`IMPORTANT!!! JENKINS CAN ONLY SEE WHAT THIS USER SEE!!!`**
 
-In this case, we use user Administrator so Jenkins can see all project in GitLab. 
+In this case, we use user Administrator so Jenkins can see all project in GitLab.
 
 Login your GitLab with that user, then choose Edit Profile.
 
@@ -80,4 +84,4 @@ Click Test Connection to test our config. If the config is right, there will be 
 
 **`DON'T FORGET TO SAVE YOUR CONFIGURATION!`**
 
-## 4. Congratulation! Jenkins now connected with GitLab!
+## 4. Congratulation! Jenkins now connected with GitLab

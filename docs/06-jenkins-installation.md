@@ -54,7 +54,7 @@ docker logs <container-id/container-name>
 
 ![jenkins url](../images/jenkins-url-config.PNG)
 
-## 7. Installation Complete!
+## 7. Installation Complete
 
 ![jenkins complete](../images/jenkins-installation-finish.PNG)
 

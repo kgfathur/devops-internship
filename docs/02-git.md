@@ -173,3 +173,7 @@ git pull origin feature-2
 > you can use `fetch` command to tells your local git to retrieve the latest meta-data info from the original (yet doesn’t do any file transferring. It’s more like just checking to see if there are any changes available) before pulling from remote repo
 >
 > `git fetch`
+
+Next Content:
+
+* [Container](../docs/03-container-intro.md)

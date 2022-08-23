@@ -205,3 +205,9 @@ Because we need credential to login to our SCM, choose username with password in
 ![view_credentials](../images/view-credentials.PNG)
 
 You can see the new credentials is created and we can use it if we need it using the ID.
+
+## Task
+
+- [ ] Create a Jenkins instance
+- [ ] Create a pipeline to build image you created previously
+- [ ] Push the image to a registry (i.e. DockerHub)

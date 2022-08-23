@@ -120,3 +120,7 @@ services:
 ```
 
 Another example, as shown above work the same but instead using dockerfile on ths sample will be using `target`, it defines the stage to build as defined inside a multi-stage Dockerfile.
+
+Next Content:
+
+* [Hands on docker-compose](../src/05-compose/README.md)

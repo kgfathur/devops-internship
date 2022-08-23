@@ -60,3 +60,8 @@ podman build -t intern-image:0.01 .
 docker build -t intern-image:0.01 -f Docker/Dockerfile .
 podman build -t intern-image:0.01 -f Docker/Dockerfile .
 ```
+
+## Task
+
+- [ ] Create a repository on you scm of choice containing a simple project
+- [ ] Create a image from repository you created above, and run it as a container. 

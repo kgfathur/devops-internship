@@ -110,6 +110,6 @@ example use of these flags
 podman run -d --name devops-demo -p 80:8080 -p 443:4430 docker.io/library/nginx
 ```
 
-Next Content
+Next Content:
 
-[Managing Container](../docs/03-container-demo.md)
+* [Container Hands-on](../docs/03-container-demo.md)

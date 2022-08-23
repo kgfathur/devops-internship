@@ -33,7 +33,7 @@ pipeline{
     stages{
         stage("SCM Checkout"){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout', deleteUntrackedNestedRepositories: true]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: 'http://10.8.60.213/root/node-demo/']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout', deleteUntrackedNestedRepositories: true]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github-login', url: 'https://github.com/Prospica/demo-pipeline']]])
             }
         }
     }
@@ -43,9 +43,9 @@ We define agent and node block with label `java11` so our pipeline will run on a
 
 At the first steps, we want to do SCM Checkout or Git Pull from our SCM. The command will be like above for pull our SCM. Fill the information needed, in this case :
 
-- branches : Master -> we want pull from master branch.
-- credentialsId : gitlab -> this is our credential to login to SCM, how to config it will be explained at below.
-- url : http://10.8.60.213/root/node-demo/ -> our project url in SCM
+- branches : main -> we want pull from main branch.
+- credentialsId : github-login -> this is our credential to login to SCM, how to config it will be explained at below.
+- url : https://github.com/Prospica/demo-pipeline -> our project url in SCM
 
 ```jenkinsfile
 pipeline{
@@ -57,7 +57,7 @@ pipeline{
     stages{
         stage("SCM Checkout"){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout', deleteUntrackedNestedRepositories: true]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: 'http://10.8.60.213/root/node-demo/']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout', deleteUntrackedNestedRepositories: true]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github-login', url: 'https://github.com/Prospica/demo-pipeline']]])
             }
         }
         stage("Create Image"){
@@ -82,7 +82,7 @@ pipeline{
     stages{
         stage("SCM Checkout"){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout', deleteUntrackedNestedRepositories: true]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: 'http://10.8.60.213/root/node-demo/']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout', deleteUntrackedNestedRepositories: true]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github-login', url: 'https://github.com/Prospica/demo-pipeline']]])
             }
         }
         stage("Create Image"){
@@ -116,13 +116,13 @@ Add the last stage to push image to our docker hub. First, we need to login to d
 
 ![pipeline_script_a](../images/pipeline-script-a.PNG)
 
-### B. Write it at your SCM (ex : GitLab) than let Jenkins pull it from SCM.
-Put your script in SCM (ex : GitLab), name it with Jenkinsfile.
+### B. Write it at your SCM (ex : GitHub) than let Jenkins pull it from SCM.
+Put your script in SCM (ex : GitHub), name it with Jenkinsfile.
 
 ![scm_jenkinsfile](../images/scm-jenkinsfile.PNG)
 
 Fill the information needed:
-- Repository URL = Your GitLab project URL.
+- Repository URL = Your GitHub project URL.
 - Credentials = Your credential to login to SCM (like step no. 5).
 - Branch to build = Branch where Jenkinsfile located.
 - Script path = fill this with Jenkinsfile.
@@ -156,26 +156,51 @@ You can see your console output to check your stages. Click the build number whi
 
 ![console_output_3](../images/console-output-3.PNG)
 
-# Make Credentials in Jenkins.
-## 1. Go to Jenkins Homepage, Click Manage Jenkins.
+# Make Github Credentials in Jenkins.
+## 1. Go to your GitHub, at your user icon choose settings
+
+![github_token_1](../images/github-token-1.PNG)
+
+## 2. Scroll down to developer settings
+
+![github_token_2](../images/github-token-2.PNG)
+
+## 3. Choose Personal Access Token
+
+![github_token_3](../images/github-token-3.PNG)
+
+## 4. Generate New Token, then fill the information needed:
+- Note = Your Token Name
+- Expiration = Your Token Duration
+- Only checklist repo because we only need this permission
+
+![github_token_4](../images/github-token-4.PNG)
+
+![github_token_5](../images/github-token-5.PNG)
+
+## 5. Save your token, you can't see it again. We will use this token instead of password for our Github Credential in Jenkins.
+
+![github_token_5](../images/github-token-6.PNG)
+
+## 6. Go to Jenkins Homepage, Click Manage Jenkins.
 
 ![manage_credentials_1](../images/manage-credentials-1.PNG)
 
-## 2. Click Manage Credentials.
+## 7. Click Manage Credentials.
 
 ![manage_credentials_2](../images/manage-credentials-2.PNG)
 
-## 3. Click Global at The Bottom.
+## 8. Click Global at The Bottom.
 
 ![manage_credentails_3](../images/manage-credentials-3.PNG)
 
-## 4. Click Add Credentials and Fill The Information needed.
+## 9. Click Add Credentials.
 
 ![create_credentials_1](../images/create-credentials-1.PNG)
 
 ![create_credentials_2](../images/create-credentials-2.PNG)
 
-Because we need credential to login to our SCM, choose username with password in Kind. Fill your SCM username and password. For ID and Description is up to you. Click OK.
+Because we need credential to login to our SCM, choose username with password in Kind. Fill your SCM username and password (using personal access token from github). For ID and Description are up to you. Click OK.
 
 ![view_credentials](../images/view-credentials.PNG)
 

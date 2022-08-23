@@ -35,7 +35,15 @@ system, a restart and boot up take significant shorter time.
 Running an application in a VM is a way to create isolation from the running environment, but it requires a heavy layer of services to support the same low hardware footprint isolation provided by
 containers.
 
-## Images
+## Linux Container Architecture
+
+From the Linux kernel perspective, a container is a process with restrictions. a container runs an image. An image is a file-system bundle that contains all dependencies required to execute a process: files in the file system, installed packages, available resources, running processes, and kernel modules.
+
+Images are the foundation for running containers. Running containers use an immutable view of the image, allowing multiple containers to reuse the same image simultaneously
+
+## Basic Concept in Container
+
+### Images
 
 A container image is an unchangeable, static file that includes executable code so it can run an isolated process on information technology (IT) infrastructure. The image is comprised of system libraries, system tools and other platforms settings a software program needs to run on a containerization platform such as Docker or CoreOS Rkt.  The image shares the OS kernel of its host machine.
 
@@ -45,7 +53,7 @@ Container images are stored in a registry that is either private or public on a 
 
 a layer, or image layer is a change on an image, or an intermediate image. Every command you specify (FROM, RUN, COPY, etc.) in your Dockerfile causes the previous image to change, thus creating a new layer. You can think of it as staging changes when you're using git.
 
-## Volume
+### Volume
 
 In order to be able to save (persist) data and also to share data between containers, Docker/podman came up with the concept of volumes. Quite simply, volumes are directories (or files) that are outside of the default Union File System and exist as normal directories and files on the host filesystem.
 
@@ -75,7 +83,7 @@ Which we can then attach to a container at run-time e.g:
 docker run -d -v my-vol:/data debian
 ```
 
-## Network
+### Network
 
 Container networking enables containers to communicate with other containers or host and share their resources, data and applications. There are two main options when an application is run in a container:
 

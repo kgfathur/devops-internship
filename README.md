@@ -44,50 +44,25 @@
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-      </ul>
-    </li>
-    <li><a href="https://github.com/kgfathur/devops-internship/tree/main/00-intro">Intro to Devops</a></li>
-    <li><a href="https://github.com/kgfathur/devops-internship/tree/main/01-linux-basic">Linux Basic</a></li>
-    <li><a href="https://github.com/kgfathur/devops-internship/tree/main/02-git">Git</a></li>
-    <li><a href="https://github.com/kgfathur/devops-internship/tree/main/03-container">Container</a></li>
-    <li><a href="https://github.com/kgfathur/devops-internship/tree/main/04-dockerfile">Dockerfile</a></li>
-    <li><a href="https://github.com/kgfathur/devops-internship/tree/main/05-docker-compose">Docker Compose</a></li>
-    <li><a href="https://github.com/kgfathur/devops-internship/tree/main/06-docker-swarm">Docker Swarm</a></li>
-    <li><a href="https://github.com/kgfathur/devops-internship/tree/main/07-jenkins">Jenkins</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
 ![image](https://orangematter.solarwinds.com/wp-content/uploads/2022/03/DevOps-lifecycle-capabilities-1024x621.png)
-
-
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add README content
-- [ ] Add Intro to DevOps
-- [ ] Add Linux Basic Content
-- [ ] Add Git (Github/Gitlab) Basic
-- [ ] Add Basic Container Operations Content
-- [ ] Add Building docker image with Dockerfile
-- [ ] Add Docker Compose Template and Usage Content
-- [ ] Add Intro to Docker Swarm (Container Orchestration)
-- [ ] Add Jenkins Basic
-    - [ ] Intro to Jenkins
-    - [ ] Run and Build Container
-- [ ] Multi-language Support
-    - [ ] Indonesia
-    - [ ] English
-    - [ ] Sundanese :*
+- [ ] [DevOps Introduction](./docs/01-devops-intro.md)
+- [ ] [Git Introduction](./docs/02-git.md)
+- [ ] [Container Introduction](./docs/03-container-intro.md)
+  - [ ] [Container Hands-on](./docs/03-container-demo.md)
+- [ ] [Building Container Image](./docs/04-dockerfile.md)
+  - [ ] [Dockerfile Hands-On](./src/04-dockerfile/Dockerfile)
+- [ ] [Multi Container Application](./docs/05-docker-compose.md)
+  - [ ] [Multi Container Hands-On](./src/05-compose/README.md)
+- [ ] [CI/CD tools (Jenkins)](./docs/06-jenkins.md)
+  - [ ] [Jenkins Installation](./docs/06-jenkins-installation.md)
+  - [ ] [Jenkins SCM integration](./docs/06-jenkins-gitlab-integration.md)
+  - [ ] [Jenkinsfile](./docs/06-jenkins-pipeline-guide.md)
+  - [ ] [Creating Pipeline](./docs/06-jenkins-pipeline-creation.md)
+
 
 Go to [open issues](https://github.com/kgfathur/devops-internship/issues) for request some interesting topic and see a full list of proposed contents (and known issues).
 

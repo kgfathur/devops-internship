@@ -1,0 +1,31 @@
+pipeline{
+    agent {
+		node {
+			label 'java11'
+		}
+	}
+    stages{
+        stage("SCM Checkout"){
+            steps{
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'CleanBeforeCheckout', deleteUntrackedNestedRepositories: true]], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'gitlab', url: 'http://10.8.60.213/root/node-demo/']]])
+            }
+        }
+        stage("Create Image"){
+            steps{
+                sh '''
+                docker build -t prospica/demo-pipeline:v1 .
+                '''
+            }
+        }
+        stage("Push Image"){
+            steps{
+                sh '''
+                set +x
+                docker login --username=prospica --password=$dockerPassword
+                set -x
+                docker push prospica/demo-pipeline:v1
+                '''
+            }
+        }
+    }
+}

@@ -1,12 +1,15 @@
 # Jenkins Pipeline Script Guide
-## Jenkins using Groovy language for define its Pipeline Script. There is some block in Jenkins Pipeline Script.
 
-## 1. Pipeline 
+## Jenkins using Groovy language for define its Pipeline Script. There is some block in Jenkins Pipeline Script
+
+## 1. Pipeline
+
 ```jenkinsfile
 pipeline{
 
 }
 ```
+
 The pipeline block is the base for your pipeline that define entire build process, same function like main{} in coding.
 
 ## 2. Stages & Stage
@@ -75,11 +78,12 @@ stages{
 ```jenkinsfile
 pipeline{
     agent {
-		node {
-			label 'java11'
-		}
-	}
+        node {
+            label 'java11'
+        }
+    }
 ```
+
 We can use agent block to make our pipeline run on specific Jenkins node. We use this if our pipeline need many dependency that can interfere with other pipeline. For example pipeline A need openjdk 11 but pipeline B need openjdk 7.
 
 Inside agent block, there is node block. In this block we define our Jenkins node label so this pipeline will only run on the node with that label.
@@ -88,15 +92,15 @@ Inside agent block, there is node block. In this block we define our Jenkins nod
 
 ```jenkinsfile
 pipeline {
-	environment {
-		def dateNow = sh(script: "date +'%d'", returnStdout: true).trim()
-		def monthNow = sh(script: "date +'%m'", returnStdout: true).trim()
-		def hourNow = sh(script: "date +'%H'", returnStdout: true)trim()
-		def dateNowWithTime = sh(script: "date +'-%d%m%y-%T'", returnStdout: true)trim()
-		def version = "${monthNow}.${dateNow}.${hourNow}"
-		def getDc = ""
-		def confirmDC = ""
-	}
+    environment {
+        def dateNow = sh(script: "date +'%d'", returnStdout: true).trim()
+        def monthNow = sh(script: "date +'%m'", returnStdout: true).trim()
+        def hourNow = sh(script: "date +'%H'", returnStdout: true)trim()
+        def dateNowWithTime = sh(script: "date +'-%d%m%y-%T'", returnStdout: true)trim()
+        def version = "${monthNow}.${dateNow}.${hourNow}"
+        def getDc = ""
+        def confirmDC = ""
+    }
 ```
-We can use Environment block to define variables that we want to use in our pipeline.
 
+We can use Environment block to define variables that we want to use in our pipeline.

@@ -1,9 +1,5 @@
 pipeline{
-    agent {
-		node {
-			label 'java11'
-		}
-	}
+    agent any
     stages{
         stage("SCM Checkout"){
             steps{

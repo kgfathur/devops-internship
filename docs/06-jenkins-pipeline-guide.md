@@ -77,17 +77,21 @@ stages{
 
 ```jenkinsfile
 pipeline{
-    agent {
-        node {
-            label 'java11'
-        }
-    }
+    agent any
 ```
 
 We can use agent block to make our pipeline run on specific Jenkins node. We use this if our pipeline need many dependency that can interfere with other pipeline. For example pipeline A need openjdk 11 but pipeline B need openjdk 7.
 
 Inside agent block, there is node block. In this block we define our Jenkins node label so this pipeline will only run on the node with that label.
 
+```jenkinsfile
+pipeline{
+    agent {
+        node {
+            label 'java11'
+        }
+    }
+```
 ## 5. Environment
 
 ```jenkinsfile

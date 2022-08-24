@@ -1,60 +1,56 @@
-# Jenkins Installation on Container(Docker/Podman)
+# Jenkins Installation using .war file
 
-## 1. Pull Jenkins Image from docker.io repository using podman or docker command
-
-```bash
-# Podman
-podman pull docker.io/jenkins/jenkins:latest
-
-# Docker
-docker pull docker.io/jenkins/jenkins:latest
-```
-
-## 2. Run container
-
-Run the jenkins as a container and expose port and give the volume to jenkins use, command below is expose port 18080 in the host port to access the jenkins that listening to port 8080, then set a volume named jenkins-data to data inside `/var/data/jenkins_home` to be bind to.
+## 1. Download jenkins.war file
 
 ```bash
-# Podman
-podman run -d -p 18080:8080 --name Jenkins -v jenkins-data:/var/data/jenkins_home jenkins/jenkins:latest
-
-# Docker
-docker run -d -p 18080:8080 --name Jenkins -v jenkins-data:/var/data/jenkins_home jenkins/jenkins:latest
+wget https://mirrors.tuna.tsinghua.edu.cn/jenkins/war-stable/2.346.3/jenkins.war
 ```
 
-## 3. Access Jenkins with localhost:(ex: localhost:18080)
+## 2. Download Open JDK 11 (if not already exists)
+
+```bash
+yum install java-11-openjdk
+java -version
+```
+
+
+## 3. Run Jenkins
+
+Run the jenkins with jenkins.war file. Thecommand is down below:
+
+```bash
+java -jar <path_where_the_file_is> -httpPort=<port-for-jenkins>
+
+example:
+java -jar /opt/jenkins.war -httpPort=18080
+```
+
+## 4. Access Jenkins with localhost:(ex: localhost:18080)
 
 ![acess jenkins](../images/jenkins-view-first-time.PNG)
 
-Get admin password in `/var/jenkins_home/secrets/initialAdminPassword` or you can view your jenkins container logs.
+Get admin password in `/var/jenkins_home/secrets/initialAdminPassword` or you can view your jenkins logs.
 
 ```bash
 # view initialAdminPassword file
-podman exec -it Jenkins cat /var/jenkins_home/secrets/initialAdminPassword
-
-docker exec -it Jenkins cat /var/jenkins_home/secrets/initialAdminPassword
-
-#Accessing via logs
-podman logs <container-id/container-name>
-
-docker logs <container-id/container-name>
+cat /var/jenkins_home/secrets/initialAdminPassword
 ```
 
-## 4. Install recommended plugin
+## 5. Install recommended plugin
 
 ![jenkins plugin1](../images/jenkins-view-plugin-1.PNG)
 
 ![jenkins plugin2](../images/jenkins-view-plugin-2.PNG)
 
-## 5. Create Admin User
+## 6. Create Admin User
 
 ![create adminusr](../images/create-admin-user.PNG)
 
-## 6. Setting Jenkins Url(default=localhost:port)
+## 7. Setting Jenkins Url(default=localhost:port)
 
 ![jenkins url](../images/jenkins-url-config.PNG)
 
-## 7. Installation Complete
+## 8. Installation Complete
 
 ![jenkins complete](../images/jenkins-installation-finish.PNG)
 

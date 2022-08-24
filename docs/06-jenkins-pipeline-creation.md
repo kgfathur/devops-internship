@@ -26,7 +26,6 @@ Checklist `The project is paramaterized` and click `Add Parameter`. Choose `Pass
 ```jenkinsfile
 pipeline{
     agent any
-	}
     stages{
         stage("SCM Checkout"){
             steps{
@@ -47,7 +46,6 @@ At the first steps, we want to do SCM Checkout or Git Pull from our SCM. The com
 ```jenkinsfile
 pipeline{
     agent any
-	}
     stages{
         stage("SCM Checkout"){
             steps{
@@ -69,7 +67,6 @@ Add the next stage to create our image using docker command. Give the tag for ou
 ```jenkinsfile
 pipeline{
     agent any
-	}
     stages{
         stage("SCM Checkout"){
             steps{
